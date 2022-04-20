@@ -1,0 +1,22 @@
+{
+  "name": "fitty",
+  "version": "1.0.0",
+  "description": "using webpack npm gitty.js to create a creative website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webpack",
+    "fitty",
+    "fitty.js"
+  ],
+  "author": "summer edwards",
+  "license": "MIT",
+  "devDependencies": {
+    "fitty": "^2.3.6",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
+  }
+}
