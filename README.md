@@ -4,7 +4,6 @@ Scales text so it fits to its parent container. Ideal for flexible and responsiv
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rikschennink/fitty/blob/gh-pages/LICENSE)
 [![npm version](https://badge.fury.io/js/fitty.svg)](https://badge.fury.io/js/fitty)
-![npm](https://img.shields.io/npm/dt/fitty)
 
 ## Features
 
@@ -18,10 +17,13 @@ Scales text so it fits to its parent container. Ideal for flexible and responsiv
 
 ## Installation
 
-Install from npm:
+Install Webpack and Fitty from npm:
 
 ```
-npm install fitty --save
+npm install --save-dev webpack webpack-cli webpack-dev-serve fitty
+```
+```
+npm install
 ```
 
 **[Download](https://github.com/rikschennink/fitty)** `dist/fitty.min.js` from Rik's Fitty Git Repo and include the script on your page like shown below.
@@ -29,7 +31,7 @@ npm install fitty --save
 ## Usage
 
 Create an HTML document as normal. Choose the parent container that houses the text you want to be responsive. For example, a `<div>` with `id="my-element"` can be passed into the `fitty()` function in your .js file. 
-Use the example below ato help you get started. Fruther, include any .js scripts before the closing `</body>` element.
+Use the example below ato help you get started. Further, include any .js scripts before the closing `</body>` element.
 
 ```html
 <div id="my-element">Responsive Text</div>
@@ -46,20 +48,9 @@ The following options are available to pass to the `fitty` method.
 | ------------------ | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `minSize`          | `16`                   | The minimum font size in pixels                                                                                                                                                                                                                                                                   |
 | `maxSize`          | `512`                  | The maximum font size in pixels                                                                                                                                                                                                                                                                   |
-| `multiLine`        | `true`                 | Wrap lines when using minimum font size.                                                                                                                                                                                                                                                          |
-| `observeMutations` | `MutationObserverInit` | Rescale when element contents is altered. Is set to false when `MutationObserver` is not supported. Pass a custom MutationObserverInit config to optimize monitoring based on your project. By default contains the MutationObserverInit configuration below or `false` based on browser support. |
+| `multiLine`        | `true`                 | Wrap lines when using minimum font size.                                                                                                               
 
-Default MutationObserverInit configuration:
-
-```javascript
-{
-  subtree: true,
-  childList: true,
-  characterData: true
-}
-```
-
-You can pass custom arguments like this:
+If you want to set a min or max font size, here is the syntax:
 
 ```javascript
 fitty('#my-element', {
@@ -243,21 +234,6 @@ See an example custom font implementation below. This assumes fitty has already 
     <div><h1 class="fit">I'm a wonderful heading</h1></div>
 </div>
 ```
-
-## Tested
-
--   Modern browsers
--   IE 10+
-
-Note that IE will require CustomEvent polyfill:
-https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent#Polyfill
-
-IE10 will require a polyfill for `Object.assign`:
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
-
-## Versioning
-
-Versioning follows [Semver](http://semver.org).
 
 ## License
 

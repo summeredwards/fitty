@@ -1,3 +1,234 @@
-#my-element{
-	font-size: 10em;
+@import url("https://use.typekit.net/ers2gdy.css");
+
+*:before,
+*:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html{
+	background-color: rgb(253,253,226);
+}
+
+#background-style{
+	background-color: rgb(253,253,226);
+	width: 100%;
+}
+
+#background-style2{
+	background-color: black;
+	width: 100%;
+}
+
+#abbey{
+	background-image: url(../img/abbey.jpeg); 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 175vh;
+	width: 100%;
+	margin-top: 0 !important;
+	padding-top: 0 !important;
+}
+.styling{
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 80px;
+	padding-right: 80px;
+	max-width: 800px;
+	text-align: center;
+	font-size: 50px;
+	background-color: rgb(253,253,226);
+}
+
+.styling h1{
+	font-weight: 400;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	position: relative;
+	animation-name: reveal-name;
+	animation-duration: 3s;
+}
+
+.styling h2{
+	font-weight: 400;
+	/*padding-bottom: 40px;*/
+	position: relative;
+	animation-name: reveal-name;
+	animation-duration: 3s;
+}
+
+@keyframes reveal-name{
+	0%{
+		color: rgb(253,253,226);
+	}
+	100%{
+		color: black;
+	}
+}
+
+.styling p{
+	text-align: left;
+	max-width: 1000px;
+}
+
+.styling2{
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 80px;
+	padding-right: 80px;
+	padding-top: 40px;
+	text-align: center;
+	font-size: 50px;
+	background-color: rgb(0,0,0);
+	color: rgb(255,255,228);
+	color: rgb(235,239,233);
+}
+
+.styling2 h2{
+	font-weight: 400;
+	padding-bottom: 50px;
+}
+
+.styling2 p{
+	padding-bottom: 90px;
+	text-align: left;
+}
+
+.extra{
+	padding-top: 70px;
+}
+
+.extra2{
+	padding-top: 90px;
+	padding-bottom: 50px;
+}
+
+.fit{
+	display: inline-block;
+	white-space: nowrap;
+	font-family: adobe-caslon-pro, serif;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.fit-title{
+	display: inline-block;
+	white-space: nowrap;
+	font-family: fino-sans, sans-serif;
+	font-style: normal;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.fit-subtitle{
+	display: inline-block;
+	white-space: nowrap;
+	font-family: adobe-caslon-pro, serif;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.fit-subtitle2{
+	display: inline-block;
+	white-space: nowrap;
+	font-family: fino-sans, sans-serif;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.h-scroll{
+	overflow-x: scroll;
+    overflow-y: hidden;
+    white-space:nowrap;
+    margin-top: 50px;
+}
+
+.h-scroll img{
+	display:inline-block;
+	vertical-align:top;
+	padding-right: 40px;
+}
+
+#image{
+	position: relative;
+	animation-name: pointing;
+	animation-duration: 3s;
+	animation-iteration-count: 100;
+}
+
+@keyframes pointing{
+	0%{
+		right: 0px;
+	}
+	25%{
+		right: 10px;
+	}
+	50%{
+		right: 0px;
+	}
+	75%{
+		right: 10px;
+	}
+	100%{
+		right: 0px;
+	}
+}
+
+#icon-grid{
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  padding-top: 50px;
+  grid-template-columns: 
+  1fr 1fr 1fr 1fr;
+  grid-template-areas: 
+  "netflix prime peacock apple";
+}
+
+#netflix{
+  grid-area: netflix;
+}
+
+#prime{
+  grid-area: prime;
+}
+
+#peacock{
+  grid-area: peacock;
+}
+
+#apple{
+	grid-area: apple;
+}
+
+footer{
+	padding-top: 40px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+@media screen and (max-width: 1060px){
+  #abbey{
+  	height: 150vh;
+  }
+}
+
+@media screen and (max-width: 870px){
+  #abbey{
+  	height: 100vh;
+  }
+}
+
+@media screen and (max-width: 720px){
+  #icon-grid{
+  	grid-template-columns: 
+	  	1fr 1fr;
+	grid-template-areas: 
+		"netflix prime"
+	 	"peacock apple";
+	text-align: center;
+
+  }
 }
