@@ -1,5 +1,7 @@
 console.log("testing");
 
+import fitty from '../node_modules/fitty';
+
 fitty('.fit', {
 	maxSize: 50
 });
