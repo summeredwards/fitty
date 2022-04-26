@@ -18,17 +18,25 @@ npm install
 
 If you run into errors like "ReferenceError: require is not defined" or "Cannot use import statement outside a module" when including fitty into your .js file, **[Download](https://github.com/rikschennink/fitty)** `dist/fitty.min.js` from Rik's Fitty Git Repo and include the script on your page like shown below.
 
+```html
+<body>
+<script src="fitty.min.js"></script>
+</body>
+```
+
 ## Usage
 
-Create an HTML document like normal. Choose the parent container that houses the text that you want to be responsive. For example, a `<div>` with `id="my-element"` can be passed into the `fitty()` function in your .js file. 
+Create an HTML document like normal. Choose the parent container that houses text that you want to be responsive. For example, a `<div>` with `id="my-element"` can be passed into the `fitty()` function in your .js file. 
 Use the example below to help you get started. Include any .js scripts before the closing `</body>` element.
 
+In your HTML:
 ```html
 <div id="my-element">Responsive Text</div>
 
 <script src="fitty.min.js"></script>
 ```
 
+In your .js file:
 ```javascript
 fitty('#my-element');
 ```
@@ -189,8 +197,6 @@ See an example custom font implementation below. Assume fitty has been called on
 ```
 
 ## Notes
-
--   Will not work if the fitty element is not part of the DOM.
 
 -   If the parent element of the fitty element has horizontal padding the width calculation will be incorrect. You can fix this by wrapping the fitty element in another element.
 
