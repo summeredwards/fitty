@@ -26,7 +26,7 @@ If you run into errors like "ReferenceError: require is not defined" or "Cannot 
 
 ## Usage
 
-Create an HTML document like normal. Choose the parent container that houses text that you want to be responsive. For example, a `<div>` with `id="my-element"` can be passed into the `fitty()` function in your .js file. 
+Create an HTML document like normal. Choose the parent container that houses text that you want to be responsive. For example, `<div>` with `id="my-element"` can be passed into the `fitty()` function in your .js file. 
 Use the example below to help you get started. Include any .js scripts before the closing `</body>` element.
 
 In your HTML:
@@ -59,7 +59,6 @@ fitty('#my-element', {
 ```
 
 If you are using a class to define multiple fitty elements (ex: `<div class="fit">`), calling `var fitties = fitty('.fit');` will return every fitty element with class `.fit` in an array. If you pass a single element reference, the function will return a single fitty instance. 
-The `fitty` function can return a single or multiple 
 
 The following methods can be used on a fitty instance.
 
@@ -77,6 +76,7 @@ The following methods can be used on a fitty instance.
 If fitty returns an array, you can select a single element within the array using `.element`; for example `var fittyElement = fitties[0].element;`. If fitty returns a single fitty instance, you do not need to use `.element`. Use the example below to better understand what these methods would look like in your .js file. 
 
 ```javascript
+// fitty returns an array of fitty instances and sets it to var fitties
 var fitties = fitty('.fit');
 
 // get first fitty element from array
@@ -89,15 +89,36 @@ fitties[0].fit();
 fitties[0].unsubscribe();
 ```
 
-You can also call `fitty.fitAll()` if you want to return all fitty instances to match their parent containers. This is similar to the `fit()` method above, but instead of only redrawing one fitty, you are requesting to redraw all fitties. 
+You can also call `fitty.fitAll()` if you want all fitty instances to match their parent containers. This is similar to the `fit()` method above, but instead of only redrawing one fitty, you are requesting to redraw all fitties. 
 
 | Method           | Description                                                                                               |
 | ---------------- | --------------------------------------------------------------------------------------------------------- |
 | `fitty.fitAll()` | Refits all fitty instances to match their parent containers. Essentially a request to redraw all fitties. |
 
+## HTML
+
+If you want to add any sort of horizontal padding or margins to your fitty element, you will need to wrap it within another element. Otherwise Fitty's width calculation between the text and parent containers will be incorrect. 
+
+In your HTML:
+```html
+<div class="styling">
+    <div><h1 class="fit">I'm a fitty text</h1></div>
+</div>
+```
+In your CSS;
+```css
+.styling{
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+```
+
+I assume you want your website to be thoroughly styled using CSS. I suggest that every fitty element should be wrapped within another element like `<div>`. Like shown above, that `<div>` can be given the class `.styling`. Use `.styling` in your CSS to style your fitty element and NOT your fitty element class (like `.fit` above).
+
 ## CSS
 
-Fitty instances within class `.fit` should have the following in your CSS file. Doing so will help Fitty perform better
+Assume all fitty instances are housed within class `.fit`. Fitty instances within class `.fit` should have the following in your CSS file. Doing so will help Fitty perform better.
 
 ```css
 .fit {
@@ -133,10 +154,11 @@ NOTE: If you want your text to upscale but it is failing to do so, double check 
 
 If you want to use custom fonts, using Google fonts or Adobe fonts is preferred. Importing fonts this way would look something like this `@import url("https://use.typekit.net/blank.css");`, and would not need any special redraw from Fitty. These fonts would work as normal. However, if you want to load your own fonts into your CSS file, redrawing Fitty text will be required. 
 
-If you need to use fitty on browsers that don't have [CSS Font Loading](http://caniuse.com/#feat=font-loading) support (Edge and Internet Explorer) you can use the fantastic [FontFaceObserver by Bram Stein](https://github.com/bramstein/fontfaceobserver) to detect when your custom fonts have loaded.
+If you need to use fitty on browsers that don't have [CSS Font Loading](http://caniuse.com/#feat=font-loading) support (Edge and Internet Explorer) use [FontFaceObserver by Bram Stein](https://github.com/bramstein/fontfaceobserver).
 
-See an example custom font implementation below. Assume fitty has been called on all elements with class name `fit`.
+An example of custom font implementation is below. Assume fitty has been called on all elements with class name `fit`.
 
+In your CSS:
 ```css
 /* Only set the custom font if it's loaded and ready */
     .fonts-loaded .fit {
@@ -144,6 +166,7 @@ See an example custom font implementation below. Assume fitty has been called on
     }
 ```
 
+In your .js file:
 ```javascript
 (function () {
     // no promise support (<=IE11)
@@ -194,24 +217,6 @@ See an example custom font implementation below. Assume fitty has been called on
         fallback();
     }
 })();
-```
-
-## Notes
-
--   If the parent element of the fitty element has horizontal padding the width calculation will be incorrect. You can fix this by wrapping the fitty element in another element.
-
-```html
-<!-- Problems -->
-<div style="padding-left:100px">
-    <h1 class="fit">I'm a wonderful heading</h1>
-</div>
-```
-
-```html
-<!-- No more problems -->
-<div style="padding-left:100px">
-    <div><h1 class="fit">I'm a wonderful heading</h1></div>
-</div>
 ```
 
 ## License
