@@ -1,9 +1,6 @@
 # Fitty Text Resizing
 
-Scales text so it fits to its parent container. Ideal for flexible and responsive websites.
-
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rikschennink/fitty/blob/gh-pages/LICENSE)
-[![npm version](https://badge.fury.io/js/fitty.svg)](https://badge.fury.io/js/fitty)
+Fitty scales text so it fits to its parent container (by calculating the width between them). Ideal for flexible and responsive websites.
 
 ## Installation
 
@@ -105,7 +102,7 @@ In your HTML:
     <div><h1 class="fit">I'm a fitty text</h1></div>
 </div>
 ```
-In your CSS;
+In your CSS:
 ```css
 .styling{
     margin: 0 auto;
